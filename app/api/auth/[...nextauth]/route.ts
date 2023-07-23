@@ -7,11 +7,19 @@ export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+        email: {
+          label: "Email",
+          type: "email", 
+        },
+        password: {
+          label: "Password",
+          type: "password", 
+        },
       },
       async authorize(credentials) {
-        const { email, password } = credentials ?? {}
+        const {
+          email, password, 
+        } = credentials ?? {};
         if (!email || !password) {
           throw new Error("Missing username or password");
         }

@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-export default function Form({ type }: { type: "login" | "register" }) {
+export default function Form({ type }: { type: "login" | "register" }): JSX.Element {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -21,6 +21,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
             redirect: false,
             email: e.currentTarget.email.value,
             password: e.currentTarget.password.value,
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
           }).then(({ error }) => {
             if (error) {

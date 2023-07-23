@@ -1,6 +1,6 @@
 import { unstable_getServerSession } from "next-auth/next";
 
-export default async function AuthStatus() {
+export default async function AuthStatus(): Promise<JSX.Element> {
   const session = await unstable_getServerSession();
   return (
     <div className="absolute top-5 w-full flex justify-center items-center">
