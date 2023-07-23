@@ -13,6 +13,15 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
+enum Role {
+  Parent
+  PrincipalSponsor
+  SecondarySponsor
+  Bridesmaid
+  Groomsman
+  Guest
+}
+
 model User {
   id        Int       @id @default(autoincrement())
   email     String    @unique
@@ -26,6 +35,7 @@ model Guest {
   group     Group?     @relation(fields: [groupId], references: [id])
   groupId   String?
   Response  Response[]
+  role      Role       @default(Guest)
 }
 
 model Group {
